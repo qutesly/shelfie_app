@@ -1,0 +1,27 @@
+import React from "react";
+import { Pressable, StyleSheet } from "react-native";
+import { Colors } from "../constants/Colors";
+import { ThemedViewProps } from "../@types/types";
+
+const ThemeButton = ({ style, ...props }: ThemedViewProps) => {
+  return (
+    <Pressable
+      style={({ pressed }) => [styles.btn, pressed && styles.pressed, style]}
+      {...props}
+    />
+  );
+};
+
+export default ThemeButton;
+
+const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: Colors.primary,
+    padding: 18,
+    borderRadius: 6,
+    marginVertical: 10,
+  },
+  pressed: {
+    opacity: 0.5,
+  },
+});

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
+import { useColorScheme } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import { Colors } from "../constants/Colors";
@@ -20,8 +20,8 @@ const RootLayout = () => {
       }}
     >
       <Stack.Screen name="index" options={{ title: "Home" }} />
-      <Stack.Screen name="about" options={{ title: "About" }} />
-      <Stack.Screen name="contact" options={{ title: "Contact" }} />
+      <Stack.Screen name="(auth)" options={{ headerShown: false}} />
+      <Stack.Screen name="(dashboard)" options={{ headerShown: false}} />
     </Stack>
     </>
     
@@ -30,4 +30,3 @@ const RootLayout = () => {
 
 export default RootLayout;
 
-const styles = StyleSheet.create({});

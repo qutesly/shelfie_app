@@ -1,10 +1,15 @@
-import { StyleSheet, View, useColorScheme } from "react-native";
+import { StyleSheet, View, ViewProps, useColorScheme } from "react-native";
 import React from "react";
 import { Colors } from "../constants/Colors";
+import { ColorScheme, ThemedViewProps } from "../@types/types";
 
-const ThemedView = ({ style, ...props }) => {
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme] ?? Colors.light;
+
+const ThemedView = ({ style, ...props }: ThemedViewProps) => {
+  const colorScheme = useColorScheme() as ColorScheme | null;
+
+  const themeKey: ColorScheme = colorScheme === "light"? "light" : "dark";
+
+  const theme = Colors[themeKey];
 
   return (
     <View

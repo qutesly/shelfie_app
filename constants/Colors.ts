@@ -1,12 +1,12 @@
-export interface ThemeColors {
-  background: string;
-  text: string;
-  title: string;
-  navBackground: string;
-  iconColor: string;
-  iconColorFocused: string;
-  uiBackground: string;
-}
+// export interface ThemeColors {
+//   background: string;
+//   text: string;
+//   title: string;
+//   navBackground: string;
+//   iconColor: string;
+//   iconColorFocused: string;
+//   uiBackground: string;
+// }
 
 
 export const Colors = {

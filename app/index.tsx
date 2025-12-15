@@ -1,22 +1,38 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
-import Logo from "../assets/img/logo_light.png"
 import { Link } from "expo-router";
 
-// Themed UI
+// Themed components
 import ThemedView from "../components/ThemedView";
-
+import ThemeLogo from "../components/ThemeLogo";
+import Spacer from "../components/Spacer";
+import ThemedText from "../components/ThemedText";
 
 const Home = () => {
-  
   return (
     <ThemedView style={styles.container}>
-        <Image source={Logo} style={styles.img} />
+      <ThemeLogo />
+      <Spacer height={20} />
 
-      <Text style={styles.title}>Hello World</Text>
+      <ThemedText style={styles.title} title={true}>
+        Hello World
+      </ThemedText>
+      <Spacer height={20} />
 
-      <Link href="/about" style={styles.link}>About Page</Link>
-      <Link href="/contact" style={styles.link}>Contact Page</Link>
+      <ThemedText>Reading List App</ThemedText>
+      <Spacer height={20} />
+
+      <Link href="/login" style={styles.link} asChild>
+        <ThemedText>Login Page</ThemedText>
+      </Link>
+
+      <Link href="/register" style={styles.link} asChild>
+        <ThemedText>Register Page</ThemedText>
+      </Link>
+
+       <Link href="/profile" style={styles.link} asChild>
+        <ThemedText>Profile Page</ThemedText>
+      </Link>
     </ThemedView>
   );
 };
@@ -24,20 +40,17 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    img: {
-        marginVertical: 20
-    },
-    title: {
-        fontWeight: "bold",
-        fontSize: 18
-    },
-     link: {
-        marginVertical: 10,
-        borderBottomWidth: 1
-    },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
+  },
 });
