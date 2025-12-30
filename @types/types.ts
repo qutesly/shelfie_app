@@ -30,7 +30,21 @@ export interface ThemedViewProps {
   backgroundColor?: string;
   children?: React.ReactNode;
   title?: boolean;
+  safe?: boolean;
   onPress?: () => void;
+  placeholder?: string;
+  keyBoardType?: string;
+  value?: string;
+  secureTextEntry?: boolean;
+  onChangeText?: {
+    (text: string): void; // Function signature
+    metadata?: {
+      // Optional metadata
+      debounce?: number;
+      validate?: boolean;
+      field?: string;
+    };
+  };
 }
 
 // ThemeLogo Props
@@ -53,22 +67,25 @@ export interface SpacerProps {
 export type Style<T> = StyleProp<T>;
 export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
 
-// ===== RE-EXPORT COMMON TYPES =====
-export type {
-  ViewStyle,
-  TextStyle,
-  ImageStyle,
-  StyleProp,
-  DimensionValue,
-} from "react-native";
-
-// Export as namespace for easy access
-export namespace AppTypes {
-  export type Theme = ThemeColors;
-  export type ColorSchemeType = ColorScheme;
-  export type Colors = ColorsType;
-
-  export type ThemedView = ThemedViewProps;
-  export type ThemeLogo = ThemeLogoProps;
-  export type Spacer = SpacerProps;
+// =====USER CONTEXT TYPE =====
+export interface userContextType {
+  email: string;
+  password: string;
+  children: React.ReactNode;
 }
+
+export type User = {
+  name?: string;
+  id?: string;
+  email?: string | null;
+  password?: string;
+  
+};
+
+export type userContextValue = {
+  user: User | undefined | null;
+  login: (email: string, password: string) => Promise<void>;
+  register: (email: string, password: string) => Promise<void>;
+  logout: () => Promise<void>;
+  authChecked: boolean
+};
