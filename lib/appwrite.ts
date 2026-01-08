@@ -1,4 +1,4 @@
-import { Account, Avatars, Client } from "react-native-appwrite";
+import { Account, Avatars, Client, Databases } from "react-native-appwrite";
 
 export const client = new Client()
   .setProject("6936d44b001599c5429e")
@@ -6,3 +6,4 @@ export const client = new Client()
 
 export const account = new Account(client);
 export const avatar = new Avatars(client);
+export const databases = new Databases(client);

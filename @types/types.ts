@@ -1,4 +1,5 @@
 // ===== REACT NATIVE TYPES =====
+import React from "react";
 import {
   ViewStyle,
   TextStyle,
@@ -31,6 +32,8 @@ export interface ThemedViewProps {
   children?: React.ReactNode;
   title?: boolean;
   safe?: boolean;
+  disabled?: boolean;
+  multiline?: boolean;
   onPress?: () => void;
   placeholder?: string;
   keyBoardType?: string;
@@ -75,17 +78,41 @@ export interface userContextType {
 }
 
 export type User = {
+  $id: string | null;
   name?: string;
   id?: string;
   email?: string | null;
   password?: string;
-  
 };
 
 export type userContextValue = {
+  // $id: unknown;
   user: User | undefined | null;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  authChecked: boolean
+  authChecked: boolean;
 };
+
+// ===== BOOK TYPE =====
+
+export type Book = {
+  id: string;
+  title: string;
+  author: string;
+  description?: string;
+  imageUrl?: string;
+  [key: string]: any;
+};
+
+// ===== BOOKS CONTEXT TYPE =====
+
+export interface BooksContextType {
+  books: Book[];
+  // isLoading: boolean;
+  // error: string | null;
+  fetchBooks: () => Promise<void>;
+  fetchBookById: (id: string) => Promise<Book | null>;
+  createBook: (data: Omit<Book, "id">) => Promise<void>;
+  deleteBook: (id: string) => Promise<void>;
+}

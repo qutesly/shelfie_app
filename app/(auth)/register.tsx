@@ -13,7 +13,7 @@ import { Colors } from "../../constants/Colors";
 import ThemedView from "../../components/ThemedView";
 import Spacer from "../../components/Spacer";
 import ThemedText from "../../components/ThemedText";
-import ThemeButton from "../../components/ThemeButton";
+import ThemeButton from "../../components/ThemedButton";
 import ThemedTextInput from "../../components/ThemedTextInput";
 
 const Register = () => {

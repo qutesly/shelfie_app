@@ -9,13 +9,11 @@ import { Link } from "expo-router";
 import { useUser } from "../../hooks/useUser";
 import { Colors } from "../../constants/Colors";
 
-
-
 // Themed components
 import ThemedView from "../../components/ThemedView";
 import Spacer from "../../components/Spacer";
 import ThemedText from "../../components/ThemedText";
-import ThemeButton from "../../components/ThemeButton";
+import ThemeButton from "../../components/ThemedButton";
 import ThemedTextInput from "../../components/ThemedTextInput";
 
 const Login = () => {
@@ -30,7 +28,7 @@ const Login = () => {
     try {
       await login(email, password);
     } catch (error) {
-      setError(error.message)
+      setError(error.message);
     }
   };
 
@@ -63,7 +61,7 @@ const Login = () => {
         </ThemeButton>
 
         <Spacer />
-        {error && (<Text style={styles.error}>{error}</Text>)}
+        {error && <Text style={styles.error}>{error}</Text>}
 
         <Spacer height={100} />
         <Link href={"/register"}>
@@ -92,10 +90,10 @@ const styles = StyleSheet.create({
   error: {
     color: Colors.warning,
     padding: 10,
-    backgroundColor: '#f5c1c8',
+    backgroundColor: "#f5c1c8",
     borderColor: Colors.warning,
     borderWidth: 1,
     borderRadius: 6,
     marginHorizontal: 10,
-  }
+  },
 });

@@ -4,6 +4,7 @@ import { Stack } from "expo-router";
 import { Colors } from "../constants/Colors";
 import { StatusBar } from "expo-status-bar";
 import { UserProvider } from "../context/UserContext";
+import { BooksProvider } from "../context/BooksContext";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
@@ -11,6 +12,7 @@ const RootLayout = () => {
 
   return (
     <UserProvider email={""} password={""}>
+      <BooksProvider>
       <StatusBar style="auto" />
       <Stack
         screenOptions={{
@@ -22,6 +24,7 @@ const RootLayout = () => {
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
       </Stack>
+      </BooksProvider>
     </UserProvider>
   );
 };

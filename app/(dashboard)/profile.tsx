@@ -5,7 +5,7 @@ import { useUser } from "../../hooks/useUser";
 import ThemedView from "../../components/ThemedView";
 import ThemedText from "../../components/ThemedText";
 import Spacer from "../../components/Spacer";
-import ThemeButton from "../../components/ThemeButton";
+import ThemeButton from "../../components/ThemedButton";
 
 const Profile = () => {
   const { logout, user } = useUser();
